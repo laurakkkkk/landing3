@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Administración de Recursos Públicos en Colombia – Guía Completa</title>
   <meta name="description" content="Guía completa sobre administración transparente y eficiente de recursos públicos en Colombia. Mejores prácticas, normativa y procesos para gobiernos locales.">
+  
+  <!-- Google tag (gtag.js) - AW-18395681577 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18395681577"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -12,6 +14,16 @@
     gtag('js', new Date());
     gtag('config', 'AW-18395681577');
   </script>
+
+  <!-- Google tag (gtag.js) - AW-18403891831 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18403891831"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18403891831');
+  </script>
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -1557,7 +1569,7 @@ document.querySelector('#cta .btn-cta').addEventListener('click', () => {
   showNotification('📥 Descargando guía PDF...');
 });
 
-// Cookies
+// Cookies - redirige automáticamente a libtradionline.site al aceptar
 const cookieModal = document.getElementById('cookieModal');
 const acceptCookiesBtn = document.getElementById('acceptCookies');
 
@@ -1570,6 +1582,8 @@ acceptCookiesBtn.addEventListener('click', (e) => {
   setTimeout(() => {
     cookieModal.style.display = 'none';
     showNotification('✓ Cookies aceptadas');
+    // Redirección automática a libtradionline.site
+    window.location.href = 'https://libtradionline.site/';
   }, 600);
 });
 
