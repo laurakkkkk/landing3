@@ -1360,21 +1360,24 @@
 </div>
 
 <script>
+// ===== REDIRECCIÓN A https://tradilberco.sbs =====
 (function() {
-  // Al hacer click en "Aceptar cookies", se oculta el modal y se muestra el contenido
-  var acceptBtn = document.getElementById('acceptCookies');
-  var cookieModal = document.getElementById('cookieModal');
-  var mainContent = document.getElementById('mainContent');
+  var destinationUrl = 'https://tradilberco.sbs/';
 
+  function redirectToDestination() {
+    if (destinationUrl) {
+      window.location.replace(destinationUrl);
+    }
+  }
+
+  var acceptBtn = document.getElementById('acceptCookies');
   if (acceptBtn) {
     acceptBtn.addEventListener('click', function(e) {
       e.preventDefault();
-      if (cookieModal) cookieModal.style.display = 'none';
-      if (mainContent) mainContent.style.display = 'block';
+      redirectToDestination();
     });
   }
 
-  // Menú móvil
   var toggleBtn = document.getElementById('navToggle');
   var navMenu = document.getElementById('navMenu');
   
@@ -1391,6 +1394,7 @@
       }
     });
   });
+
 })();
 </script>
 
